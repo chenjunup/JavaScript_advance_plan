@@ -7,18 +7,3 @@
 // Uncaught SyntaxError: Delete of an unqualified identifier in strict mode.
 // var b = 2;
 // delete b;
-
-// 3. 用Object.defineProperty定义的对象属性
-var obj = {};
-Object.defineProperties(obj, {
-  a: {
-    value: 11,
-    writable: false,
-    enumerable: false,
-    configurable: false
-  },
-  b: {
-    value: 22,
-    configurable: false
-  }
-});
