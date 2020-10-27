@@ -21,3 +21,10 @@
 
 // 3. 在严格模式下, 试图删除不可删除的属性时会抛出异常(之前这种操作不会产生任何效果):
 // 4. 在严格模式下, 对象中的重名属性会抛出异常
+
+function fun() { return this; }
+console.assert(fun() === undefined);
+console.assert(fun.call(2) === 2);
+console.assert(fun.apply(null) === null);
+console.assert(fun.call(undefined) === undefined);
+console.assert(fun.bind(true)() === true);
