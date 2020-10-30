@@ -38,3 +38,14 @@ const selfFilter = function(fn, context) {
 }
 Array.prototype.selfFilter = selfFilter
 console.log([1,,3].selfFilter(item=>item>2))
+
+// 5. 使用reduce实现filter
+const selfFilter2 = function(fn, context) {
+  const arr = Array.prototype.slice.call(this)
+  return arr.reduce((pre, cur, index) => {
+    return fn.call(context, cur, index, this) ? [].concat(pre, cur) : [].concat(pre)
+  }, [])
+}
+Array.prototype.selfFilter2 = selfFilter2
+console.log([1,,3,5].selfFilter2(item=>item>2))
+// 6. 
